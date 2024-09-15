@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HODLINFO</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #191d28;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+        .main-content {
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #3c3c3c;
+        }
+        th {
+            background-color: #2e3241;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <div class="logo">HODLINFO</div>
+    <div class="nav-links">
+        <a href="#">INR</a>
+        <a href="#">BTC</a>
+        <a href="#">BUY BTC</a>
+    </div>
+</div>
+<div class="main-content">
+    <table id="crypto-table">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Last</th>
+            <th>Buy</th>
+            <th>Sell</th>
+            <th>Volume</th>
+            <th>Base Unit</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="crypto, iterStat : ${cryptoDataList}">
+            <td th:text="${iterStat.count}"></td>
+            <td th:text="${crypto.name}"></td>
+            <td th:text="${crypto.last}"></td>
+            <td th:text="${crypto.buy}"></td>
+            <td th:text="${crypto.sell}"></td>
+            <td th:text="${crypto.volume}"></td>
+            <td th:text="${crypto.baseUnit}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
